@@ -1,2 +1,2 @@
 # ReactNativePlayer
-学习ReactNative并搭建经典框架(Tab+多个Nav)App.
+学习ReactNative并搭建经典框架类型App，集成网络请求、loading加载分页数据等待。
