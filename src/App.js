@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import { Image } from 'react-native';
+import CardStackStyleInterpolator from "react-navigation/src/views/StackView/StackViewStyleInterpolator";
 
 import Home from './components/Home';
 import Photos from './components/Photos';
 import My from './components/My';
 import DetailView from './components/DetailView';
-import RNStackNavigator from './RNStackNavigator';
 
 /*忽略警告*/
 import { YellowBox } from 'react-native';
-import CardStackStyleInterpolator from "react-navigation/src/views/StackView/StackViewStyleInterpolator";
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 
 // Home Navigator
@@ -113,18 +112,7 @@ const myNavigator = createStackNavigator({
     }),
 });
 
-
-
-
-
-function createTabBarIcon(focused: boolean) {
-    if (focused == true) {
-        return <Image source={require('./images/star-full.png')} />
-    } else {
-        return <Image source={require('./images/star-empty.png')} />
-    }
-}
-
+// TabBarNavigator
 const tabNav = createBottomTabNavigator({
     StackNav: {
         screen: homeStackNav,
@@ -170,6 +158,15 @@ const tabNav = createBottomTabNavigator({
         },
     }
 });
+
+
+function createTabBarIcon(focused: boolean) {
+    if (focused === true) {
+        return <Image source={require('./images/star-full.png')} />
+    } else {
+        return <Image source={require('./images/star-empty.png')} />
+    }
+}
 
 export default tabNav;
 
